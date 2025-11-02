@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Chat PWA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div id="app">
+    <h1>Random Chat</h1>
+    <div id="setup">
+      <label>Ваше имя/ник: <input type="text" id="userId"></label><br>
+      <label>Выберите режим:
+        <select id="mode">
+          <option value="text">Текст</option>
+          <option value="audio">Аудио</option>
+          <option value="video">Видео</option>
+        </select>
+      </label><br>
+      <label>Аватарка URL (необязательно): <input type="text" id="avatar" placeholder="https://i.pravatar.cc/50"></label><br>
+      <button id="joinBtn">Присоединиться</button>
+    </div>
+
+    <div id="chat" style="display:none;">
+      <div id="partnerInfo"></div>
+      <div id="textChat" style="display:none;">
+        <div id="messages"></div>
+        <input type="text" id="messageInput">
+        <button id="sendBtn">Отправить</button>
+      </div>
+      <div id="audioVideo" style="display:none;">
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+        <button id="enableVideo" style="display:none;">Включить видео</button>
+      </div>
+      <button id="nextBtn">Сменить партнёра</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
